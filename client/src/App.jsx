@@ -1,5 +1,6 @@
 function App() {
   const settings = {
+    method: 'GET',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
@@ -8,7 +9,7 @@ function App() {
 
   async function getCookie() {
     try {
-      const res = await fetch('http://127.0.0.1:3000/get-cookie', settings)
+      const res = await fetch('https://cookies-f9gu.onrender.com/get-cookie', settings)
       const data = await res.json()
 
       console.log(data)
