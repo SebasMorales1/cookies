@@ -1,14 +1,16 @@
 import express from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(cors({
-  origin: process.env.ORIGIN,
+  origin: 'https://cookies-lovat.vercel.app',
   credentials: true
 }))
 app.use(express.json())
+app.use(cookieParser())
 
 app.get('/get-cookie', (req, res) => {
   const values = ['hola', 'adios', 'beta', 'sigma']
