@@ -4,11 +4,11 @@ import cors from 'cors'
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(express.json())
 app.use(cors({
-  origin: ['http://localhost:5173'],
+  origin: process.env.ORIGIN,
   credentials: true
 }))
+app.use(express.json())
 
 app.get('/get-cookie', (req, res) => {
   const values = ['hola', 'adios', 'beta', 'sigma']
